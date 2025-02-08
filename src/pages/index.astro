@@ -1,0 +1,61 @@
+---
+import Billetterie from '../components/Billetterie/Billetterie.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header/Header.astro';
+import Hero from '../components/Hero/Hero.astro';
+import Presentation from '../components/Presentation/Presentation.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<Header />
+    <Hero />
+    <Billetterie />
+    <div class="banner" />
+    <Presentation />
+    <div class="banner" />
+    <div>Contact</div>
+    <div class="banner" />
+    <Footer />
+</Layout>
+
+<style>
+    .banner {
+        height: 540px;
+        width: 100%;
+
+        position: relative;
+        background-color: rgba(var(--color-token-700), 0.5);
+
+        &:first-of-type::after {
+            background-image: url('/images/banner3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        &:nth-of-type(2)::after {
+            background-image: url('/images/banner1.jpg');
+            background-size: cover;
+            background-position: center 40%;
+        }
+
+        &:last-of-type:after {
+            background-image: url('/images/banner2.jpg');
+            background-size: cover;
+            background-position: center 25%;
+        }
+
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            mix-blend-mode: exclusion;
+        }
+    }
+
+</style>

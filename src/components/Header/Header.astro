@@ -1,0 +1,71 @@
+---
+import Nav from "../Nav/Nav.astro";
+---
+
+<style>
+    header {
+        position: fixed;
+        z-index: 10;
+        
+        width: inherit;
+        max-height: 12rem;
+
+        display: grid;
+        grid-template-columns: 200px 1fr auto;
+
+        padding: 1rem 3rem;
+
+        h1 {
+            justify-self: center;
+            width: fit-content;
+            font-family: "Yataghan", sans-serif;
+            font-size: 100px;
+            line-height: 10rem;
+
+            -webkit-animation: flash ease-out 8s infinite;
+            -moz-animation: flash ease-out 8s infinite;
+            animation: flash ease-out 8s infinite;
+            animation-delay: 3s;
+        }
+
+        img {
+            width: 8rem;
+            object-fit: contain;
+        }
+    }
+
+    @keyframes flash {
+        from {
+            opacity: 1;
+        }
+
+        10% {
+            opacity: 1;
+        }
+        11% {
+            opacity: 0;
+        }
+        12% {
+            opacity: 1;
+        }
+        13% {
+            opacity: 1;
+        }
+        15% {
+            opacity: 0.2;
+        }
+        17% {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+<header>
+    <Nav />
+    <h1>Maison Sabotage</h1>
+    <img src="/images/logo.png" alt="Maison Sabotage" loading="lazy" />
+</header>

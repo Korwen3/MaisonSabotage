@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap');
+@font-face {
+    font-family: 'Yataghan';
+    src: url('/fonts/Yataghan-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Media responsive */
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    line-height: 1.5rem;
+    text-wrap: balance;
+}
+
+p {
+  max-width: 75ch;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+}
+
+
+  .sr-only {
+    position: absolute; /* Remove from normal flow */
+    width: 1px;        /* Reduce width */
+    height: 1px;       /* Reduce height */
+    margin: -1px;      /* Move off-screen */
+    padding: 0;        /* Remove padding */
+    overflow: hidden;  /* Prevent overflow */
+    clip: rect(0, 0, 0, 0); /* Clip the element */
+    border: 0;         /* Remove border */
+  }
+
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
