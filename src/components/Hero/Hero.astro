@@ -1,12 +1,13 @@
 ---
-
+import backgroundImg from "../../assets/images/hero.jpg";
+const backgroundImgUrl = `url(${backgroundImg.src})`;
 ---
 
 <section>
     <h2>Sublime - Macabre - Merveilleux</h2>
 </section>
 
-<style>
+<style define:vars={{ backgroundImgUrl }}>
     section {
         overflow: hidden;
         height: 100svh;
@@ -15,7 +16,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
 
-        background-image: url("/images/hero.jpg");
+        background-image: var(--backgroundImgUrl);
         background-position: center;
         background-size: cover;
 

@@ -1,4 +1,5 @@
 ---
+import logo from "../../assets/images/logo.png";
 import Nav from "../Nav/Nav.astro";
 ---
 
@@ -6,7 +7,7 @@ import Nav from "../Nav/Nav.astro";
     header {
         position: fixed;
         z-index: 10;
-        
+
         width: inherit;
         max-height: 12rem;
 
@@ -67,5 +68,5 @@ import Nav from "../Nav/Nav.astro";
 <header>
     <Nav />
     <h1>Maison Sabotage</h1>
-    <img src="/images/logo.png" alt="Maison Sabotage" loading="lazy" />
+    <img src={logo.src} alt="Maison Sabotage" loading="lazy" />
 </header>

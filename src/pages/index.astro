@@ -1,25 +1,32 @@
 ---
-import Billetterie from '../components/Billetterie/Billetterie.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header/Header.astro';
-import Hero from '../components/Hero/Hero.astro';
-import Presentation from '../components/Presentation/Presentation.astro';
-import Layout from '../layouts/Layout.astro';
+import Billetterie from "../components/Billetterie/Billetterie.astro";
+import Footer from "../components/Footer/Footer.astro";
+import Header from "../components/Header/Header.astro";
+import Hero from "../components/Hero/Hero.astro";
+import Presentation from "../components/Presentation/Presentation.astro";
+import Layout from "../layouts/Layout.astro";
+import img1 from "../assets/images/banner1.jpg";
+import img2 from "../assets/images/banner2.jpg";
+import img3 from "../assets/images/banner3.jpg";
+
+const banner1 = `url(${img1.src})`;
+const banner2 = `url(${img2.src})`;
+const banner3 = `url(${img3.src})`;
 ---
 
 <Layout>
-	<Header />
+    <Header />
     <Hero />
     <Billetterie />
-    <div class="banner" />
+    <div class="banner"></div>
     <Presentation />
-    <div class="banner" />
+    <div class="banner"></div>
     <div>Contact</div>
-    <div class="banner" />
+    <div class="banner"></div>
     <Footer />
 </Layout>
 
-<style>
+<style define:vars={{ banner1, banner2, banner3 }}>
     .banner {
         height: 540px;
         width: 100%;
@@ -28,26 +35,25 @@ import Layout from '../layouts/Layout.astro';
         background-color: rgba(var(--color-token-700), 0.5);
 
         &:first-of-type::after {
-            background-image: url('/images/banner3.jpg');
+            background-image: var(--banner3);
             background-size: cover;
             background-position: center;
         }
 
         &:nth-of-type(2)::after {
-            background-image: url('/images/banner1.jpg');
+            background-image: var(--banner1);
             background-size: cover;
             background-position: center 40%;
         }
 
         &:last-of-type:after {
-            background-image: url('/images/banner2.jpg');
+            background-image: var(--banner2);
             background-size: cover;
             background-position: center 25%;
         }
 
-
         &::after {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
@@ -57,5 +63,4 @@ import Layout from '../layouts/Layout.astro';
             mix-blend-mode: exclusion;
         }
     }
-
 </style>
