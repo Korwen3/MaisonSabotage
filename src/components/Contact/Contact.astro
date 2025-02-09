@@ -115,10 +115,10 @@ const contactImg = `url(${contact.src})`;
             gap: 0.3rem;
             border-radius: 0 var(--radius) var(--radius) 0;
 
-            background-color: var(--primary-200);
+            background-image: radial-gradient(100% 75% at 50% 100%, var(--primary-700) 0%, var(--primary-900) 100%);
 
             label {
-                color: var(--primary-700);
+                color: var(--primary-200);
                 letter-spacing: 2px;
             }
 
@@ -129,7 +129,7 @@ const contactImg = `url(${contact.src})`;
                 margin-bottom: 1rem;
                 outline: 1px solid;
                 padding: 1rem;
-                color: var(--primary-700);
+                color: var(--primary-200);
 
                 &::placeholder {
                     color: var(--primary-400);
