@@ -8,6 +8,7 @@ import Layout from "../layouts/Layout.astro";
 import img1 from "../assets/images/banner1.jpg";
 import img2 from "../assets/images/banner2.jpg";
 import img3 from "../assets/images/banner3.jpg";
+import Contact from "../components/Contact/Contact.astro";
 
 const banner1 = `url(${img1.src})`;
 const banner2 = `url(${img2.src})`;
@@ -21,7 +22,7 @@ const banner3 = `url(${img3.src})`;
     <div class="banner"></div>
     <Presentation />
     <div class="banner"></div>
-    <div>Contact</div>
+    <Contact />
     <div class="banner"></div>
     <Footer />
 </Layout>
@@ -36,8 +37,6 @@ const banner3 = `url(${img3.src})`;
 
         &:first-of-type::after {
             background-image: var(--banner3);
-            background-size: cover;
-            background-position: center;
         }
 
         &:nth-of-type(2)::after {
@@ -48,8 +47,6 @@ const banner3 = `url(${img3.src})`;
 
         &:last-of-type:after {
             background-image: var(--banner2);
-            background-size: cover;
-            background-position: center 25%;
         }
 
         &::after {
@@ -61,6 +58,7 @@ const banner3 = `url(${img3.src})`;
             height: 100%;
 
             mix-blend-mode: exclusion;
+            background-attachment: fixed;
         }
     }
 </style>

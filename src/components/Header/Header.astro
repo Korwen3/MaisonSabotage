@@ -1,7 +1,19 @@
 ---
-import logo from "../../assets/images/logo.png";
+import { Image } from "astro:assets";
+import logo from "../../assets/images/logo.svg";
 import Nav from "../Nav/Nav.astro";
 ---
+
+<header>
+    <Image
+        src={logo}
+        alt="Maison Sabotage"
+        height={logo.height}
+        width={logo.width}
+    />
+    <h1>Maison Sabotage</h1>
+    <Nav />
+</header>
 
 <style>
     header {
@@ -12,25 +24,27 @@ import Nav from "../Nav/Nav.astro";
         max-height: 12rem;
 
         display: grid;
-        grid-template-columns: 200px 1fr auto;
+        grid-template-columns: auto 1fr 200px;
+        align-items: center;
 
         padding: 1rem 3rem;
 
         h1 {
             justify-self: center;
             width: fit-content;
-            font-family: "Yataghan", sans-serif;
             font-size: 100px;
-            line-height: 10rem;
+            color: var(--primary-200);
 
-            -webkit-animation: flash ease-out 8s infinite;
-            -moz-animation: flash ease-out 8s infinite;
-            animation: flash ease-out 8s infinite;
+            -webkit-animation: flash ease-in 5s infinite;
+            -moz-animation: flash ease-in 5s infinite;
+            animation: flash ease-in 5s infinite;
             animation-delay: 3s;
         }
 
         img {
-            width: 8rem;
+            margin-right: -2rem;
+            height: 12rem;
+            width: fit-content;
             object-fit: contain;
         }
     }
@@ -39,7 +53,6 @@ import Nav from "../Nav/Nav.astro";
         from {
             opacity: 1;
         }
-
         10% {
             opacity: 1;
         }
@@ -58,15 +71,8 @@ import Nav from "../Nav/Nav.astro";
         17% {
             opacity: 1;
         }
-
         to {
             opacity: 1;
         }
     }
 </style>
-
-<header>
-    <Nav />
-    <h1>Maison Sabotage</h1>
-    <img src={logo.src} alt="Maison Sabotage" loading="lazy" />
-</header>

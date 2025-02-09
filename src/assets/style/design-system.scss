@@ -34,6 +34,13 @@ main {
     position: relative;
     width: 100%;
     min-height: 100svh;
+
+    display: grid;
+
+    & > section:not(:last-child), > div:not(:last-child) {
+        margin-bottom: 20svh;
+    }
+
 }
 
 @media (min-width: 1440px) {
@@ -43,12 +50,15 @@ main {
 
 }
 
-h1,
 h2,
 h3,
 h4,
 h5,
-p {
+p, textarea, input, button {
     font-family: "Bona Nova", serif;
     color: var(--primary-400);
+}
+
+h1, label {
+    font-family: "Yataghan", sans-serif;
 }

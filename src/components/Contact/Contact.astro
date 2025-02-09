@@ -1,0 +1,116 @@
+---
+import contact from "../../assets/images/contact.jpg";
+
+const contactImg = `url(${contact.src})`;
+---
+
+<section>
+    <header>
+        <h1>Contact</h1>
+    </header>
+
+    <div>
+        <div></div>
+    </div>
+
+    <form action="https://formspree.io/f/xqaelnab" method="POST">
+        <label for="identity">Nom et prénom (requis)</label>
+        <input type="text" name="identity" placeholder="John Snow"/>
+
+        <label for="phone">Numéro de téléphone</label>
+        <input type="tel"  name="phone" placeholder="+337 XX XX XX XX"/>
+
+        <label for="email">Email  (requis)</label>
+        <input type="email" name="email" placeholder="votre.email@hellokitty.fr"/>
+
+        <label for="message">Votre message  (requis)</label>
+        <textarea name="message" placeholder="Votre message..." />
+
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<style define:vars={{ contactImg }}>
+
+section {
+    --radius: 0.5rem;
+
+    padding-inline: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    & > header {
+        grid-column: span 2;
+        color: var(--primary-200);
+        font-size: 6.8rem;
+    }
+
+    & > div:first-of-type {
+
+        width: 100%;
+        border-radius: var(--radius);
+        position: relative;
+
+        background-color: var(--primary-400);
+        background-image: var(--contactImg);
+        background-size: cover;
+        background-blend-mode: luminosity;
+        overflow: hidden;
+
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(var(--color-token-400), 0.5);
+            z-index: -1;
+        }
+    }
+
+    & > form {
+        margin-block: 3rem;
+        padding: 3rem;
+        display: grid;
+        gap: 0.3rem;
+        border-radius: 0 var(--radius) var(--radius) 0;
+
+        background-color: var(--primary-200);
+
+        label {
+            color: var(--primary-700);
+            letter-spacing: 2px;
+        }
+
+        input, textarea {
+            background-color: inherit;
+            border: none;
+            margin-bottom: 1rem;
+            outline: 1px solid;
+            padding: 1rem;
+            color: var(--primary-700);
+
+            &::placeholder {
+                color: var(--primary-400);
+            }
+        }
+
+        button {
+            margin-top: 2rem;
+            width: fit-content;
+            padding: 0.5rem 2rem;
+            justify-self: flex-end;
+            border-radius: 100svh;
+            border: none;
+            color: var(--primary-200);
+            background-color: var(--primary-700);
+            font-size: 1.2rem;
+            font-family: "Yataghan", sans-serif;
+        }
+    }
+}
+
+</style>

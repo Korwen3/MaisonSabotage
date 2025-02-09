@@ -9,6 +9,7 @@ const backgroundImgUrl = `url(${backgroundImg.src})`;
 
 <style define:vars={{ backgroundImgUrl }}>
     section {
+        position: relative;
         overflow: hidden;
         height: 100svh;
 
@@ -16,9 +17,21 @@ const backgroundImgUrl = `url(${backgroundImg.src})`;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
 
-        background-image: var(--backgroundImgUrl);
-        background-position: center;
-        background-size: cover;
+        background: rgb(0,0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(var(--color-token-400),0.2) 50%, rgba(0,0,0,1) 100%);
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: var(--backgroundImgUrl);
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: 0;
+        }
 
         h2 {
             justify-self: flex-end;

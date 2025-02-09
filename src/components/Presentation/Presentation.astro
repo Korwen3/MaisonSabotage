@@ -1,15 +1,88 @@
+---
+import logo from "../../assets/images/logo.svg";
+
+const text1 =
+    "Où l'horreur rencontre le gore et le glamour, Maison Sabotage est une plateforme inclusive pour l'art du drag alternatif à Lille.";
+const text2 =
+    "Plongez dans nos spectacles et ateliers célébrant le sublime, le macabre et le merveilleux...";
+const text = [text1, text2];
+
+const logoUrl = `url(${logo.src})`;
+---
+
+<script>
+    const importantWords = [
+        "Maison",
+        "Sabotage",
+        "inclusive",
+        "drag",
+        "Lille",
+        "spectacles",
+        "ateliers",
+        "sublime",
+        "macabre",
+        "merveilleux",
+    ];
+    const paragraphs = document.querySelectorAll("p[data-presentation]");
+
+    paragraphs.forEach((paragraph) => {
+        const regex = /[\wÀ-ÿ']+|[.,?!:;'"()-]/g
+        const words = paragraph.innerHTML.match(regex);
+        paragraph.innerHTML = ""
+        words?.forEach((word) => {
+            if (importantWords.includes(word)) {
+                const span = document.createElement("span");
+                span.classList.add("important-word");
+                span.innerText = word;
+                paragraph.appendChild(span);
+            } else {
+                paragraph.appendChild(document.createTextNode(word));
+            }
+            paragraph.appendChild(document.createTextNode(" "));
+        });
+    });
+</script>
 
 <section>
-    <p>
-        Où l’horreur rencontre le gore et le glamour, Maison Sabotage est une plateforme inclusive pour l’art du drag alternatif à Lille.
-    </p>
-    <p>
-        Plongez dans nos spectacles et ateliers célébrant le sublime, le macabre et le merveilleux...
-    </p>
+    {text.map((text) => <p data-presentation>{text}</p>)}
 </section>
 
-<style>
+<style define:vars={{ logoUrl }}>
     section {
-        background-image: url("/images/logo.png");
+        position: relative;
+        padding-inline: 3rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-image: var(--logoUrl);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center right;
+            opacity: 0.1;
+
+        }
+
+        p {
+            z-index: 2;
+            color: var(--primary-400);
+            font-size: calc(2.8rem + 0.8svw);
+            line-height: 6rem;
+            text-wrap: wrap;
+
+            &:nth-of-type(even) {
+                text-align: right;
+            }
+        }
+
+        .important-word {
+            color: var(--primary-200);
+            font-size: calc(3.6rem + 0.8svw);
+        }
     }
 </style>

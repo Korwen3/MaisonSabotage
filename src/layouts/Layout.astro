@@ -1,8 +1,25 @@
 ---
 import "../assets/style/global.scss";
 import "../assets/style/design-system.scss";
+import {getBaseUrl} from "../utils/getBaseUrl";
 
+const baseUrl = getBaseUrl();
+const fontUrl = `url(${baseUrl}/fonts/Yataghan-Regular.otf)`;
 ---
+
+
+<style define:vars={{ fontUrl }}>
+
+    @import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap');
+
+    @font-face {
+        font-family: 'Yataghan';
+        src: var(--fontUrl) format('opentype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+</style>
 
 <!doctype html>
 <html lang="en">
