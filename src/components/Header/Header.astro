@@ -21,14 +21,14 @@ import Nav from "../Nav/Nav.astro";
         z-index: 10;
 
         width: inherit;
-        max-height: 12rem;
 
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
 
-        padding: 1rem 3rem;
+        padding: 1rem 4rem;
 
+        background-color: rgba(var(--color-token-800), 0.75);
         nav {
             height: 200px;
             aspect-ratio: 1;
@@ -40,6 +40,8 @@ import Nav from "../Nav/Nav.astro";
             font-size: 100px;
             color: var(--primary-200);
 
+            text-shadow: 0 0 75px var(--primary-400);
+
             -webkit-animation: flash ease-in 5s infinite;
             -moz-animation: flash ease-in 5s infinite;
             animation: flash ease-in 5s infinite;
@@ -50,7 +52,8 @@ import Nav from "../Nav/Nav.astro";
             width: fit-content;
             height: 200px;
             width: fit-content;
-            object-fit: contain;
+            object-fit:scale-down;
+            filter: invert(80%) sepia(58%) saturate(368%) hue-rotate(194deg) brightness(102%) contrast(90%) drop-shadow(0 0 75px var(--primary-400));
         }
     }
 

@@ -21,8 +21,6 @@ const spectacles = [
         link: "25",
     },
 ];
-
-
 ---
 
 <style>
@@ -37,6 +35,10 @@ const spectacles = [
             padding: 0;
             font-size: 5.8rem;
             letter-spacing: 7%;
+
+            &:hover {
+                filter: drop-shadow(0 0 33px var(--primary-100));
+            }
         }
 
         ul {
@@ -45,13 +47,13 @@ const spectacles = [
         }
 
         li:nth-of-type(even) {
-                background: linear-gradient(
-                    90deg,
-                    var(--primary-800) 0%,
-                    var(--primary-700) 50%,
-                    var(--primary-800) 100%
-                );
-            }
+            background: linear-gradient(
+                90deg,
+                var(--primary-800) 0%,
+                var(--primary-700) 50%,
+                var(--primary-800) 100%
+            );
+        }
 
         a {
             width: 100%;
@@ -101,7 +103,6 @@ const spectacles = [
                 clip-path: circle(0%);
             }
 
-
             &:hover {
                 color: var(--primary-200);
                 outline: 2px solid;
@@ -133,24 +134,23 @@ const spectacles = [
     }
 </style>
 
-
 <section>
     <header>
-        <h1>Billetterie</h1>
+        <h1 class="auto-show-variant">Billetterie</h1>
     </header>
-    <ul>
-    {
-        spectacles.map((spectacle) => (
+    <ul class="auto-show">
+        {
+            spectacles.map((spectacle) => (
                 <li>
                     <a href={spectacle.link}>
                         <p>{spectacle.date}</p>
                         <h2>{spectacle.title}</h2>
-                        <p><span>Réserver</span></p>
+                        <p>
+                            <span>Réserver</span>
+                        </p>
                     </a>
                 </li>
-
-        ))
+            ))
+        }
     </ul>
-    }
 </section>
-

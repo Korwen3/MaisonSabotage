@@ -1,57 +1,66 @@
-
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  font: inherit;
+    margin: 0;
+    padding: 0;
+    font: inherit;
 }
 
 /* Media responsive */
-img, picture, svg, video {
-  display: block;
-  max-width: 100%;
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     text-wrap: balance;
 }
 
 p {
-  max-width: 75ch;
+    max-width: 75ch;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  :has(:target) {
-    scroll-behavior: smooth;
-    scroll-padding-top: 3rem;
-  }
+    :has(:target) {
+        scroll-behavior: smooth;
+        scroll-padding-top: 3rem;
+    }
 }
 
 
-  .sr-only {
-    position: absolute; /* Remove from normal flow */
-    width: 1px;        /* Reduce width */
-    height: 1px;       /* Reduce height */
-    margin: -1px;      /* Move off-screen */
-    padding: 0;        /* Remove padding */
-    overflow: hidden;  /* Prevent overflow */
-    clip: rect(0, 0, 0, 0); /* Clip the element */
-    border: 0;         /* Remove border */
-  }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 
 
-  @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
-  }
+}

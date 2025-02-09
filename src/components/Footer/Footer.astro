@@ -1,6 +1,8 @@
 ---
 import logo from "../../assets/images/logo.png";
 
+const logoUrl = `url(${logo.src})`;
+
 const year = new Date().getFullYear();
 
 const navItems = [
@@ -27,36 +29,31 @@ const navItems = [
     </ul>
   </section>
 
-  <img
-    src={logo.src}
-    alt="Maison Sabotage"
-    height={logo.height}
-    width={logo.width}
-    loading="lazy"
-  />
+  <div class="logo"></div>
 
   <section>
     <header>Contact</header>
     <address>
       <p>Lille, France</p>
-      <a href="mailto:jim@example.com">maisonsabotage@gmail.com</a>
-      <a href="">@lamaisonsabotage</a>
+      <a class="link-before" href="mailto:maisonsabotage@gmail.com">maisonsabotage@gmail.com</a>
+      <a class="link-before" href="https://www.instagram.com/maison_sabotage">@maison_sabotage</a>
     </address>
   </section>
 
   <div class="copyright">
-    &copy; {year} Maison Sabotage . Tous droits réservés.
+    {year} Maison Sabotage . Tous droits réservés.
   </div>
 </footer>
 
-<style>
+<style define:vars={{ logoUrl }}>
   footer {
     background-color: var(--primary-700);
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
     padding-inline: 3rem;
     padding-top: 3rem;
+    gap: 3rem;
 
     section:nth-of-type(2) {
       justify-self: flex-end;
@@ -71,9 +68,6 @@ const navItems = [
     }
     a,
     p {
-      color: var(--primary-100);
-      text-decoration: none;
-      font-size: 1.3rem;
       padding-bottom: 0.5rem;
     }
 
@@ -85,6 +79,7 @@ const navItems = [
       }
       & > li a {
         transition: all 0.3s ease-in-out;
+        text-decoration: none;
       }
 
       & > li:hover::after {
@@ -114,8 +109,22 @@ const navItems = [
       display: grid;
     }
 
-    img:hover {
-      mix-blend-mode: soft-light;
+    .logo {
+      justify-self: center;
+      width: 200px;
+      height: 100%;
+      position: relative;
+
+      background-image: var(--logoUrl);
+        background-size: contain;
+        background-repeat: no-repeat;
+        filter: invert(19%) sepia(77%) saturate(3909%) hue-rotate(247deg) brightness(84%) contrast(86%);
+
+        mix-blend-mode: lighten;
+        transition: all 0.3s ease-in-out;
+      &:hover {
+        filter: invert(80%) sepia(58%) saturate(368%) hue-rotate(194deg) brightness(102%) contrast(90%) drop-shadow(0 0 33px var(--primary-100));
+      }
     }
 
     .copyright {
